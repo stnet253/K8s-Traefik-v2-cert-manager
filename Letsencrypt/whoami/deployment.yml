@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: whoami-app
+  namespace: whoami
+spec:
+  selector:
+    matchLabels:
+      name: whoami-backend
+  template:
+    metadata:
+      labels:
+        name: whoami-backend
+    spec:
+      containers:
+        - name: backend
+          image: containous/whoami:latest
+          ports:
+            - containerPort: 80

@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: tony-cert
+  namespace: whoami
+spec:
+  commonName: tony.k9s.itnotetk.com
+  secretName: tony-cert
+  dnsNames:
+    - tony.k9s.itnotetk.com
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer

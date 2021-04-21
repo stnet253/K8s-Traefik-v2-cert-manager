@@ -1,0 +1,17 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: tony-ingressroute
+  namespace: whoami
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`tony.k9s.itnotetk.com`)
+      kind: Rule
+      services:
+        - kind: Service
+          name: whoami-service
+          port: 80
+  tls:
+    secretName: tony-cert

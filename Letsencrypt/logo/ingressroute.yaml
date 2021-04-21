@@ -1,0 +1,17 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: rancher-logo-ingressroute
+  namespace: logos
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`rancher-logo.k9s.itnotetk.com`)
+      kind: Rule
+      services:
+        - kind: Service
+          name: rancher-logo-service
+          port: 80
+  tls:
+    secretName: rancher-logo-cert
