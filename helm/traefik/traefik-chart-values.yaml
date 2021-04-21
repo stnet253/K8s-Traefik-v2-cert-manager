@@ -1,0 +1,6 @@
+additionalArguments:
+  - "--api.insecure=true"
+  - "--accesslog=true"
+ingressRoute:
+  dashboard:
+    enabled: false
